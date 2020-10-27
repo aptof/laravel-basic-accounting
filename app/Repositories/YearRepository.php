@@ -20,7 +20,7 @@ class YearRepository
     }
   }
 
-  private function getPreviousYear(int $year)
+  public function getPreviousYear(int $year)
   {
     $yr = $this->getYearByYear($year - 1);
     if (!isset($yr)) {
@@ -29,7 +29,7 @@ class YearRepository
     return $yr;
   }
 
-  private function getYearByYear(int $year)
+  public function getYearByYear(int $year)
   {
     return Year::firstWhere(['year' => $year]);
   }
@@ -46,7 +46,7 @@ class YearRepository
     $year->save();
   }
 
-  private function getYearById($yearId)
+  public function getYearById($yearId)
   {
     $year = Year::find($yearId);
     if (!isset($year)) {
