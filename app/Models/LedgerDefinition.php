@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class LedgerDefinition extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = ['id'];
+  protected $guarded = ['id'];
+
+  public function ledgers()
+  {
+    return $this->hasMany('App\Models\Ledger');
+  }
 }

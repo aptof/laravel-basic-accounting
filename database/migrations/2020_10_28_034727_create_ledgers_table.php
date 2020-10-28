@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLedgerDefinitionsTable extends Migration
+class CreateLedgersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateLedgerDefinitionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ledger_definitions', function (Blueprint $table) {
+        Schema::create('ledgers', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->unique();
-            $table->enum('type', ['Depreciable Asset', 'Other Asset', 'Liabilities', 'Income', 'Expense', 'Capital', 'Drawing', 'Tax']);
-            $table->double('rate', 3, 2)->nullable();
+            $table->foreignId('ledger_definition_id');
+            $table->foreignId('year_id');
+            $table->decimal('opening_balance', 12,2);
+            $table->decimal('balance', 12,2);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateLedgerDefinitionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ledger_definitions');
+        Schema::dropIfExists('ledgers');
     }
 }

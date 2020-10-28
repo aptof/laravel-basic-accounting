@@ -44,7 +44,7 @@ class LedgerDefinitionRepositoryTest extends TestCase
   public function test_create_creates_definition_with_rate()
   {
     $repo = $this->getSut();
-    $repo->create('Input GST 5%', 'Tax', 5);
-    $this->assertDatabaseHas('ledger_definitions', ['name' => 'Input GST 5%', 'type' => 'Tax', 'rate' => 5]);
+    $repo->create('Input GST 5%', 'Tax', 2.5);
+    $this->assertDatabaseHas('ledger_definitions', ['name' => 'Input GST 5%', 'type' => 'Tax', 'rate' => 2.5]);
   }
 }
