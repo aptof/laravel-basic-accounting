@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Year extends Model
+class Transaction extends Model
 {
   use HasFactory;
 
   protected $guarded = ['id'];
 
-  public function ledgers()
+  public function ledger()
   {
-    return $this->hasMany('App\Models\Ledger');
+    return $this->belongsTo('App\Models\Ledger');
   }
 
-  public function journals()
+  public function journal()
   {
-    return $this->hasMany('App\Models\Journal');
+    return $this->belongsTo('App\Models\Journal');
   }
 }
