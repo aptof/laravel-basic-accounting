@@ -17,9 +17,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('ledger_id');
             $table->foreignId('journal_id');
-            $table->decimal('amount', 12, 2);
+            $table->decimal('amount', 15, 2);
             $table->boolean('is_dr');
-            $table->decimal('balance', 12, 2);
+            $table->decimal('balance', 15, 2);
             $table->timestamps();
         });
     }

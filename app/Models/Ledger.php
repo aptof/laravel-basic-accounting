@@ -25,4 +25,9 @@ class Ledger extends Model
   {
     return $this->hasMany('App\Models\Transaction');
   }
+
+  public function depreciation()
+  {
+    return $this->hasOne('App\Models\Depreciation');
+  }
 }

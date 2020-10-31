@@ -15,6 +15,13 @@ class CreateDepreciationsTable extends Migration
     {
         Schema::create('depreciations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('ledger_id');
+            $table->double('rate', 5, 2)->default(0);
+            $table->decimal('amount', 15, 2)->default(0);
+            $table->decimal('buy_first', 15, 2)->default(0);
+            $table->decimal('buy_last', 15, 2)->default(0);
+            $table->decimal('sell_first', 15, 2)->default(0);
+            $table->decimal('sell_last', 15, 2)->default(0);
             $table->timestamps();
         });
     }

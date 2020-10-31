@@ -17,7 +17,7 @@ class CreateLedgerDefinitionsTable extends Migration
             $table->id();
             $table->string('name', 255)->unique();
             $table->enum('type', ['Depreciable Asset', 'Other Asset', 'Liabilities', 'Income', 'Expense', 'Capital', 'Drawing', 'Tax']);
-            $table->double('rate', 3, 2)->nullable();
+            $table->double('rate', 5, 2)->nullable();
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class CreateLedgersTable extends Migration
             $table->id();
             $table->foreignId('ledger_definition_id');
             $table->foreignId('year_id');
-            $table->decimal('opening_balance', 12,2);
-            $table->decimal('balance', 12,2);
+            $table->decimal('opening_balance', 15,2);
+            $table->decimal('balance', 15,2);
             $table->timestamps();
         });
     }
